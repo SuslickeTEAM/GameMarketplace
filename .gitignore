@@ -173,3 +173,4 @@ cython_debug/
 old
 report/skip/migrations
 .vscode/
+GameMarketplace/config/settings.py
