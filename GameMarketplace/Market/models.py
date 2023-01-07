@@ -6,12 +6,20 @@ class Basket(models.Model):
     basket_product = models.ForeignKey('Basket_product', on_delete=models.CASCADE, related_name='+')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
 class Product(models.Model):
-    name = models.CharField(max_length=128)
-    price = models.DecimalField(max_digits=30, decimal_places=5)
-    rate = models.ForeignKey('Rating', on_delete=models.CASCADE, related_name='+')
+    name = models.CharField(max_length=128, verbose_name = ("Наименование продукта"))
+    price = models.DecimalField(max_digits=30, decimal_places=2, verbose_name = ("Цена"))
+    # rate = models.ForeignKey('Rating', on_delete=models.CASCADE, related_name='+')
     img = models.ImageField()
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name = ("Категория"))
+    
+    def __str__(self):
+        return f'{self.name}'
+    
+    class Meta:
+        verbose_name = ("Продукт")
+        verbose_name_plural = ("Продукты")
 
 
 class Basket_product(models.Model):
@@ -20,7 +28,14 @@ class Basket_product(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128, verbose_name = ("Наименование категории"))
+    
+    def __str__(self):
+        return f'{self.name}'
+    
+    class Meta:
+        verbose_name = ("Категория")
+        verbose_name_plural = ("Категории")
 
 
 class Product_info(models.Model):
