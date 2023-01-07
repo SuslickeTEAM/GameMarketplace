@@ -23,8 +23,8 @@ class Product(models.Model):
 
 
 class Basket_product(models.Model):
-    product = models.OneToOneField(Product, on_delete=models.CASCADE)
-    basket = models.OneToOneField(Basket, on_delete=models.CASCADE, related_name='+')
+    product = models.OneToOneField(Product, on_delete=models.CASCADE, verbose_name = ("Наименование продукта"))
+    basket = models.OneToOneField(Basket, on_delete=models.CASCADE, related_name='+', verbose_name = ("Корзина"))
 
 
 class Category(models.Model):
