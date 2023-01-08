@@ -10,7 +10,7 @@ class Basket(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("корзина")
+        verbose_name = ("Корзину")
         verbose_name_plural = ("Корзины")
 
 
@@ -25,7 +25,7 @@ class Product(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("продукт")
+        verbose_name = ("Продукт")
         verbose_name_plural = ("Продукты")
 
 
@@ -36,7 +36,7 @@ class Basket_product(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("корзина продукта")
+        verbose_name = ("Корзину продуктов")
         verbose_name_plural = ("Корзина продуктов")
 
    
@@ -47,7 +47,7 @@ class Category(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("категория")
+        verbose_name = ("Категория")
         verbose_name_plural = ("Категории")
 
 
@@ -60,8 +60,8 @@ class Product_info(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("информация продукта")
-        verbose_name_plural = ("Информация продуктов")
+        verbose_name = ("Информацию о продукте")
+        verbose_name_plural = ("Информация о продуктах")
 
 
 class Rating(models.Model):
@@ -73,5 +73,5 @@ class Rating(models.Model):
         return f'{self.name}'
     
     class Meta:
-        verbose_name = ("рейтинг")
+        verbose_name = ("Рейтинг")
         verbose_name_plural = ("Рейтинги")
