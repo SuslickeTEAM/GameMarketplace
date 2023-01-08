@@ -57,7 +57,7 @@ class Product_info(models.Model):
     description = models.CharField(max_length=128, verbose_name = ("Описание"))
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.title}/{self.product}'
     
     class Meta:
         verbose_name = ("Информацию о продукте")

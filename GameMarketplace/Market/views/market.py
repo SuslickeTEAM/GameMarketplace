@@ -12,5 +12,6 @@ def catalog(request):
 
 
 def product_info(request, pk):
-    product_info = get_object_or_404(Product_info, pk=pk)
-    return render(request, "Market/Product_info.html", {"product_info": product_info})
+    products_info = get_object_or_404(Product_info, pk=pk)
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "Market/Product_info.html", {"products_info": products_info, "product": product})

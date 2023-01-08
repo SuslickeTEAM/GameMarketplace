@@ -1,17 +1,8 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-
-<div>
-    <h1> <class="product_name">{{ product.name }}
-        {{ product.price }}
-        {{ product.category }}
-    </h1>
-</div>
-
-{% for post in posts %}
-    <div>
-        <img src="{{ MEDIA_URL }}{{ product.img }}" width="200" height="200">
-        <p> </p>
-    </div>
-    {% endblock %}
+    <h2 class="ui header">Товар: {{ product.name }}</h2>
+    <h2 class="ui header">Цена: {{ product.price }}</h2>
+    <h5 class="ui">{{ products_info.title }} </h5>
+    <h5 class="ui">{{ products_info.description }}</h5>
+{% endblock %}
