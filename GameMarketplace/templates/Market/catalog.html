@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<div class="ui center aligned basic very padded segment">
+    <h1 class="ui header">Доброй пожаловать, {{ request.user.username }}!</h1>
+    {% comment %} <a href="{% url 'survey-create' %}">
+        <div class="ui red button">Создать новый опрос</div>
+    </a> {% endcomment %}
+</div>
+<div class="ui center aligned basic very padded segment">
+    {% if products %}
+    <h2 class="ui header">Ваши товары: </h2>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Категория</th>
+                <th>Изображение</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td class="product_name">{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.category }}</td>
+                <td>
+                    <img src="{{ MEDIA_URL }}{{ product.img }}" width="100" height="100">
+                    
+                </td>
+                <td>
+                    <a href="">
+                        <div class="ui red button">Купить</div>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2 class="ui header">Товары:
+        <div class="sub header">У вас нет товаров, попробуйте добавить</div>
+    </h2>
+    {% endif %}
+
+</div>
+{% endblock %}
