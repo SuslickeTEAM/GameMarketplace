@@ -174,3 +174,4 @@ old
 report/skip/migrations
 .vscode/
 GameMarketplace/config/settings.py
+media
