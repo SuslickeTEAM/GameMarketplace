@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="ui header">Товар: {{ product.name }}</h2>
+    <h2 class="ui header">Цена: {{ product.price }}</h2>
+    <h5 class="ui">{{ products_info.title }} </h5>
+    <h5 class="ui">{{ products_info.description }}</h5>
+{% endblock %}
