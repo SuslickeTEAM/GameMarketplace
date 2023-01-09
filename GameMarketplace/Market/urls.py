@@ -3,6 +3,9 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+app_name = 'market'
+
 urlpatterns = [
     path('', views.market.catalog, name='catalog'), 
     path('login/', views.auth.login, name="login"),
