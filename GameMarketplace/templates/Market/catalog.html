@@ -28,6 +28,11 @@
                 
                 <td class="product_name"><a href="{% url 'product_info' pk=product.pk %}">{{ product.name }}</td>
                 <td>{{ product.price }}</td>
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <input type="sumbit" value="В коризину">
+                    </form>
                 <td>{{ product.category }}</td>
                 </a>
 
@@ -36,7 +41,7 @@
                 </td>
                 <td>
                     <a href="">
-                        <div class="ui red button">Купить</div>
+                        <div class="ui red button">Добавить в корзину</div>
                     </a>
                 </td>
             </tr>

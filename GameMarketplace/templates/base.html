@@ -9,6 +9,18 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <div class="cart">
+        {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+        В корзине:
+        <a href="{% url 'cart:cart_detail' %}">
+            {{ total_items }} шт, ${{ cart.get_total_price }}
+        </a>
+        {% else %}
+        корзина пустая
+        {% endif %}
+        {% endwith %}
+    </div>
 </head>
 
 <body>

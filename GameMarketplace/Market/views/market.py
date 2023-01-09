@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import Http404
+from cart.forms import CartAddProductForm
 
 from ..models import *
 
@@ -14,4 +15,6 @@ def catalog(request):
 def product_info(request, pk):
     products_info = get_object_or_404(Product_info, pk=pk)
     product = get_object_or_404(Product, pk=pk)
-    return render(request, "Market/Product_info.html", {"products_info": products_info, "product": product})
+    cart_product_form = CartAddProductForm()
+    return render(request, "Market/Product_info.html", {"products_info": products_info, "product": product,
+                                                        'cart_product_form': cart_product_form})
