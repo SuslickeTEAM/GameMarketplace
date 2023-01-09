@@ -1,0 +1,4 @@
+<h1>Моя корзина</h1>
+{% for item in basket_items %}
+    <p>{{ item.product.name }}</p>
+{% endfor %}

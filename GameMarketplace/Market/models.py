@@ -3,11 +3,8 @@ from django.contrib.auth.models import User
 
 
 class Basket(models.Model):
-    basket_product = models.ForeignKey('Basket_product', on_delete=models.CASCADE, related_name='+', verbose_name = ("Наименование продукта"))
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = ("Пользователь"))
-
-    def __str__(self):
-        return f'{self.name}'
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         verbose_name = ("Корзину")
@@ -30,11 +27,11 @@ class Product(models.Model):
 
 
 class Basket_product(models.Model):
-    product = models.OneToOneField(Product, on_delete=models.CASCADE, verbose_name = ("Наименование продукта"))
-    basket = models.OneToOneField(Basket, on_delete=models.CASCADE, related_name='+', verbose_name = ("Корзина пользователя"))
+    basket = models.ForeignKey(Basket, on_delete=models.CASCADE, verbose_name = ("Корзина пользователя"))
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name = ("Наименование продукта"))
     quantity = models.PositiveIntegerField()
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.basket}'
     
     class Meta:
         verbose_name = ("Корзину продуктов")
