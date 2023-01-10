@@ -10,4 +10,5 @@ urlpatterns = [
     path('signup/', views.auth.signup, name="signup"),
     path('product/<int:pk>/info', views.market.product_info, name='product_info'),
     path('basket/', views.basket.view_basket, name='view_basket'), 
+    path('basket/<int:pk>/add', views.basket.add_basket, name='add_basket'), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
