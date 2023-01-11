@@ -1,4 +1,5 @@
 <h1>Моя корзина</h1>
 {% for item in basket_items %}
-    <p>{{ item.product.name }}</p>
+    <p>{{ item.product.name }} {{ item.product.price }}  руб. колличество: <a href="{% url 'subtraction_basket' product=item.pk basket=basket.pk  %}">-</a>{{ item.quantity }}<a href="{% url 'addition_basket' product=item.pk basket=basket.pk %}">+</a></p>
 {% endfor %}
+<p>Итого: {{ basket_total }}</p>
