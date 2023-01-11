@@ -25,19 +25,20 @@
         <tbody>
             {% for product in products %}
             <tr>
-                
-                <td class="product_name"><a href="{% url 'product_info' pk=product.pk %}">{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+            
+                <td class="product_name"><a href="{% url 'product_info' pk=product.pk %}">{{ product.name }}</a></td>
+                <td>{{ product.price }} руб.</td>
                 <td>{{ product.category }}</td>
-                </a>
+                
 
                 <td>
                     <img src="{{ MEDIA_URL }}{{ product.img }}" width="100" height="100">
                 </td>
                 <td>
-                    <a href="">
-                        <div class="ui red button">Купить</div>
-                    </a>
+                <a href="{% url 'add_basket' product.pk %}">
+                    <div class="ui blue button">Купить</div>
+                </a>
+
                 </td>
             </tr>
             {% endfor %}
