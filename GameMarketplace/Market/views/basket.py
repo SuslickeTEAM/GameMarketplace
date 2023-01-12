@@ -4,7 +4,7 @@ from ..models import *
 
 def view_basket(request):
     basket = Basket.objects.get(user=request.user)
-    basket_items = Basket_product.objects.filter(basket=basket)
+    basket_items = Basket_product.objects.filter(basket=basket).order_by('product_id')
     basket_total = 0
     for a in basket_items:
         basket_total += int(a.quantity) * int(a.product.price)
