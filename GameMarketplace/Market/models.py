@@ -60,16 +60,3 @@ class Product_info(models.Model):
     class Meta:
         verbose_name = ("Информацию о продукте")
         verbose_name_plural = ("Информация о продуктах")
-
-
-class Rating(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = ("Пользователь"))
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name = ("Продукт"))
-    rate = models.PositiveIntegerField(verbose_name = ("Рейтинг"))
-
-    def __str__(self):
-        return f'{self.name}'
-    
-    class Meta:
-        verbose_name = ("Рейтинг")
-        verbose_name_plural = ("Рейтинги")
