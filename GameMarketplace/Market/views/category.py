@@ -14,10 +14,7 @@ from ..filters import CategoryFilter
 #         products = products.filter(category=category)
 #     return render(request, 'catalog.html',{'category': category,'categories': categories,'products': products,'current_category': category.slug})
 
-def home_view(request):
+def category_view(request):
     category = Category.objects.all()
     category_filter = CategoryFilter(request.GET, queryset=category)
-    context = {
-        'category_filter': category_filter,
-    }
-    return render(request, "Market/catalog.html", context)
+    return render(request, "Market/catalog.html", {"category_filter": category_filter})

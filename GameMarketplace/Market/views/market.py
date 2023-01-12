@@ -4,11 +4,15 @@ from django.urls import reverse
 from django.http import Http404
 
 from ..models import *
+from ..filters import CategoryFilter
 
 @login_required
 def catalog(request):
     products = Product.objects.all()
-    return render(request, "Market/catalog.html", {"products": products})
+    category = Category.objects.all()
+    products_filter = CategoryFilter(request.GET, queryset=products)
+    # category_filter = CategoryFilter(request.GET, queryset=products)
+    return render(request, "Market/catalog.html", {"products_filter": products_filter})
 
 
 def product_info(request, pk):

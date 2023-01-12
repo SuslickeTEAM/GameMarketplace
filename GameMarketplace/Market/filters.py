@@ -1,10 +1,10 @@
 import django_filters
 
-from .models import Category
+from .models import *
 
 
 class CategoryFilter(django_filters.FilterSet):
 
     class Meta:
-        model = Category
-        fields = {'name': ['exact']}
+        model = Product
+        fields = {'category':['exact']}
