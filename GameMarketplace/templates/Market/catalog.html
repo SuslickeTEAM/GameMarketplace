@@ -10,8 +10,13 @@
     </a> {% endcomment %}
 </div>
 <div class="ui center aligned basic very padded segment">
-    {% if products %}
+    <form method="get">
+        {{ products_filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% if products_filter.qs %}
     <h2 class="ui header">Ваши товары: </h2>
+    
     <table class="ui celled table">
         <thead>
             <tr>
@@ -23,9 +28,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for product in products %}
+            {% for product in products_filter.qs %}
             <tr>
-            
+                
                 <td class="product_name"><a href="{% url 'product_info' pk=product.pk %}">{{ product.name }}</a></td>
                 <td>{{ product.price }} руб.</td>
                 <td>{{ product.category }}</td>
