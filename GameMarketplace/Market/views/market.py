@@ -9,7 +9,6 @@ from ..filters import CategoryFilter
 @login_required
 def catalog(request):
     products = Product.objects.all()
-    category = Category.objects.all()
     products_filter = CategoryFilter(request.GET, queryset=products)
     return render(request, "Market/catalog.html", {"products_filter": products_filter})
 
