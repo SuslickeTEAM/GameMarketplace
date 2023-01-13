@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.market.catalog, name='catalog'), 
-    # path('', views.category.category_view, name='catalog-filter'), 
     path('login/', views.auth.login, name="login"),
     path('signup/', views.auth.signup, name="signup"),
     path('product/<int:pk>/info', views.market.product_info, name='product_info'),
