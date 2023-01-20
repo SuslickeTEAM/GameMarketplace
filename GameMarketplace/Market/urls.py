@@ -13,4 +13,5 @@ urlpatterns = [
     path('basket/<int:pk>/add', views.basket.add_basket, name='add_basket'), 
     path('basket/<int:basket>/product/<int:product>/remove',views.basket.subtraction_basket, name='subtraction_basket'),
     path('basket/<int:basket>/product/<int:product>/add',views.basket.addition_basket, name='addition_basket'),
+    path('profile/', views.profile.profile, name='profile'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

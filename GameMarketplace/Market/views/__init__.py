@@ -1,1 +1,1 @@
-from . import auth, basket, market
+from . import auth, basket, market, profile
