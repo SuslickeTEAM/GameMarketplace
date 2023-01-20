@@ -9,6 +9,9 @@
         <div class="ui red button">Создать новый опрос</div>
     </a> {% endcomment %}
 </div>
+<a href="{% url 'profile' %}">
+<div class="ui blue button">Профиль</div>
+</a>
 <div class="ui center aligned basic very padded segment">
     <form method="get">
         {{ products_filter.form.as_p }}
