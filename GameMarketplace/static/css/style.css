@@ -1,0 +1,70 @@
+.body {
+    margin: 0;
+}
+
+.container {
+    margin: 0px 62px;
+}
+
+.header {
+    background-image: url(https://res.cloudinary.com/dpmi8upgh/image/upload/v1674256320/Backgorund_fy30uk.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-liner {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-name {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 32px;
+
+    margin-right: 25px;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 32px;
+
+    margin-right: 25px;
+
+    transition: color 0.3s linear;
+}
+
+.nav-item:hover {
+    color: red;
+}
+
+.login-img {
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    left: 1139px;
+    top: 56px;
+    border-radius: 3px;
+}
+
+.basket-img{
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    left: 1428px;
+    top: 52px;
+}
+
+.about-img{
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 1676px;
+    top: 64px;
+    border-radius: 3px;
+}
