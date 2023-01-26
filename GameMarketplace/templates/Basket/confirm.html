@@ -1,0 +1,7 @@
+<h1>Вы купили</h1>
+{% if error %}
+{% else %}
+{% for item in basket_items %}
+    <p>{{ item.product.name }} {{ item.product.price }}  руб.</p>
+{% endfor %}
+{% endif %}
