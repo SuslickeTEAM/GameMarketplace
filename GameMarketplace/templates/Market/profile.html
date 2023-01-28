@@ -1,82 +1,46 @@
+{% extends "base.html" %}
 {% load static %}
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
-    <title>Профиль</title>
-</head>
-<body>
-    <div class='header'>
-        <div class='container'>
-            <div class='header-liner'>
-                <div class = 'nav'>
-                    <div class='header-logo'>
-                        <img src="{% static 'Assets/лого.svg' %}" alt="#">
-                    </div>
-                    <a class='nav-name' href="@">SUSLBUY</a>
-                    <a class='nav-item' href="{% url 'catalog' %}">ГЛАВНАЯ</a>
-                    <a class='nav-item' href="@">КАТАЛОГ</a>
-                    <a class='nav-item' href="@">ОТЗЫВЫ</a>
+{% block title %}Каталог{% endblock %}
+{% block extra %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
 
-                    <span class='nav-line' style="display: flex; align-items: center;">
-                        <img class ="line-img" src="{% static 'Assets/line.svg' %}" alt="#">
-                    <span class='nav-item' style="display: flex; align-items: center;">
-                        <img class ="basket-img" src="{% static 'Assets/cart.svg' %}" alt="#">
-                        <a class='nav-item' href="@">МОИ ТОВАРЫ</a>
-                    <span class='nav-item' style="display: flex; align-items: center;">
-                        <img class ="about-img" src="{% static 'Assets/about.svg' %}" alt="#">
-                        <a class='nav-item' href="@">О НАС</a>
-                    <span class='nav-item' style="display: flex; align-items: center;">
-                        <img class ="login-img" src="{% static 'Assets/login.svg' %}" alt="#">
-                        <a class='nav-item' href="@">ВОЙТИ</a>
-                    </span>
-                </div>
-
-                <div class = "header-down">
-                    <img class ="profile-img" src="{% static 'Assets/profile.svg' %}" alt="#">
-                    <div class ="header-user">
-                        <p>ИМЯ ПРОФИЛЯ: {{ user.username }}</p>
-                        <p>ПОЧТА: {{ user.email }}</p>
-                        <p>ДАТА РЕГИСТРАЦИИ: {{ user.date_joined }}</p>
-                        <p>БИО</p>
-                    </div>
-                    <img class ="line_5-img" src="{% static 'Assets/Line_5.svg' %}" alt="#">
-                    <div class ="header-history">ИСТОРИЯ ПОКУПОК
-
-                        <span class='catalog' style="display: flex; align-items: left;">
-                            <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#">
-                            <img class ="catalog-img" style="margin:0 0 0 145px" src="{% static 'Assets/catalog.svg' %}" alt="#">
-                            <img class ="catalog-img" style="margin:0 0 0 145px" src="{% static 'Assets/catalog.svg' %}" alt="#">
-                            <img class ="catalog-img" style="margin:0 0 0 145px" src="{% static 'Assets/catalog.svg' %}" alt="#">
-                        </span>
-                        <img class ="line_6-img" src="{% static 'Assets/Line_5.svg' %}" alt="#">
-                    </div>
-                </div>
+    {% block content %}
+    <div class='header-down'>
+        <div class="catalog">
+            <div class="profile">
+                <img class ="profile-img" src="{% static 'Assets/profile.svg' %}" alt="#">
+               <p><a class='text' href="@">ИМЯ ПРОФИЛЯ: {{ user.username }}</a><br>
+                <a class='text' href="@">ПОЧТА: {{ user.email }}</a><br>
+                <a class='text' href="@">ДАТА РЕГИСТРАЦИИ: {{ user.date_joined }}</a><br>
+                <a class='text' href="@">БИО</a></p>  
             </div>
+            <img class ="line-img" src="{% static 'Assets/line_5.svg' %}" alt="#"> 
         </div>
-    </div>
-    {% block content %}{% endblock %}
-    <footer>
-        <div class='footer-liner'>
-            <span class='footer-liner' style="display: flex; align-items: center;">
-                <img class ="samsung_pay-img" src="{% static 'Assets/samsung_pay.svg' %}" alt="#">
-                <img class ="apple_pay-img" style="margin:0 0 0 5px" src="{% static 'Assets/apple_pay.svg' %}" alt="#">
-                <img class ="google_pay-img" style="margin:0 0 0 5px" src="{% static 'Assets/google_pay.svg' %}" alt="#">
-                <img class ="visa_png-img" style="margin:0 0 0 5px" src="{% static 'Assets/visa_png.svg' %}" alt="#">
-                <img class ="Юmoney-img" style="margin:0 0 0 5px" src="{% static 'Assets/Юmoney.svg' %}" alt="#">
+        <div class ="header-history">
+            <a class='text' href="@">ИСТОРИЯ ПОКУПОК</a>
+                  <span class='catalog' style="display: flex; align-items: center;"> 
+                    <p> <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#"> 
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#"> 
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#">
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#">
+                    </p>
+                    <p>
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#">
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#">
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#"> 
+                        <img class ="catalog-img" src="{% static 'Assets/catalog.svg' %}" alt="#"> </p>
+                    </span> 
+                    <img class ="line2-img" src="{% static 'Assets/line_5.svg' %}" alt="#">
+        </div>
+        <div class="footer">
+            <span class='footer' style="display: flex; align-items: center;">
+                <img class ="footer-img" src="{% static 'Assets/samsung_pay.svg' %}" alt="#"> 
+                <img class ="footer-img" src="{% static 'Assets/Юmoney.svg' %}" alt="#"> 
+                <img class ="footer-img" src="{% static 'Assets/visa_png.svg' %}" alt="#">
+                <img class ="footer-img" src="{% static 'Assets/aplle_pay.svg' %}" alt="#">
+                <img class ="footer-img" src="{% static 'Assets/google_pay.svg' %}" alt="#">
             </span>
         </div>
-    </footer>
-</body>
-
-</html>
-
-
-
-<!-- <h1>Моя профиль {{ user.username }}</h1>
-<h3>Дата регестрации: {{ user.date_joined }}</h3> -->
-
-
-
-
-
+    </div>
+    {% endblock %}

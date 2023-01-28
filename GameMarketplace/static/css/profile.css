@@ -1,173 +1,82 @@
-.body {
-    margin: 0;
-}
-
-.container {
-    margin: 0px 62px;
-}
-
-body {
-    background: url(https://res.cloudinary.com/dpmi8upgh/image/upload/v1674253707/Background_2_dsepei.png) no-repeat;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-size:cover;
-}
-
-.header {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+body { 
+    background: url("../Assets/Задник.svg") no-repeat; 
+    background-size: cover;
+    align-content: center;
     align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto
-}
-
-.header-liner {
-    padding-top: 10px;
     display: flex;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-}
-
-.nav {
-    width: 100%;
-    flex-grow: 1;
-    justify-content: space-between;
-    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
-    text-align: center;
-    white-space: nowrap;
-    overflow-x: hidden;
-}
+    height: 100vh;
+    justify-content: flex-start;
+    margin: 0px;
+    width: 100vw;
+} 
 
-.nav-name {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 32px;
-
-    margin-right: 25px;
-}
-
-.nav-item {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    margin-right: 25px;
-
-    transition: color 0.3s linear;
-}
-
-.nav-item:hover {
-    color: rgb(171, 157, 247);
-}
-
-.login-img {
-    float: left;
-    margin-right: 10px;
-}
-
-.login-img {
-    float: left;
-    margin-right: 10px;
-}
-
-.basket-img {
-    float: left;
-    margin-right: 10px;
-}
-
-.about-img {
-    float: left;
-    margin-right: 10px;
-}
-
-.line-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    background: rgba(0, 0, 0, 0.116);
-    z-index: -1;
-}
-
-.header-user {
-    position: absolute;
-    width: 949px;
-    height: 0px;
-    left: 735px;
-    top: 0px;
-
-    line-height: 50%;
-    align-items: left;
+.Profile {  
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: left; 
     text-align: left;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 43px;
-    color: #FFFFFF;
+    justify-content: center; 
+    margin: 60px; 
+    width: calc(250px + (1500 - 250) * ((100vw - 500px) / (1920 - 500)));
+} 
+ 
+.text { 
+    flex-wrap: wrap; 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 45px; 
+    margin: 30px; 
+    line-height: 70px;  
+}  
+ 
+.line-img { 
+    flex-wrap: wrap; 
+    float: inline-end; 
+    width: calc(250px + (1500 - 150) * ((100vw - 300px) / (1920 - 500))); 
+} 
+ 
+.header-history { 
+    width: 100%; 
+    display: flex; 
+    flex-wrap: wrap; 
+    white-space: wrap; 
+    align-items: center; 
+    text-align: center; 
+    justify-content: center; 
+    margin: 0 auto;
+} 
+ 
+.catalog { 
+    width: 100%; 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    text-align: center; 
+    justify-content: center; 
+    margin: 0 auto 
+} 
+ 
+.catalog-img { 
+    flex-wrap: wrap; 
+    margin: 0px 60px 5px; 
+} 
+ 
+.line2-img { 
+    flex-wrap: wrap; 
+    float: inline-end; 
+    width: calc(250px + (1500 - 150) * ((100vw - 300px) / (1920 - 500)));
 }
 
-.line_5-img {
-    position: absolute;
-    width: 1790px;
-    height: 1353px;
-    left: -50px;
-    top: 213px;
+.footer { 
+    width: 100%; 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 1%;
+    width: calc(250px + (1500 - 250) * ((100vw - 500px) / (1920 - 500)));  
 }
-
-.header-history {
-    position: absolute;
-    width: 1690px;
-    height: 1270px;
-    left: 70px;
-    top: 970px;
-
-    line-height: 50%;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 43px;
-    color: #FFFFFF;
-}
-
-.catalog {
-    position: absolute;
-    width: 300px;
-    height: 362px;
-    left: -35px;
-    top: 90px;  
-}
-
-.line_6-img {
-    position: absolute;
-    width: 1790px;
-    height: 1020px;
-    left: -115px;
-    top: 0px;
-}
-
-.footer-liner {
-    position: absolute;
-    width: 119px;
-    height: 55px;
-    left: 300px;
-    top: 870px;
-}
-
-.header-down {
-    position: absolute;
-    width: 37px;
-    height: 209px;
-    left: 113px;
-    top: 213px;
-}
-
-
