@@ -3,11 +3,88 @@
 {% block title %}Каталог{% endblock %}
 
 {% block content %}
-<div class="ui center aligned basic very padded segment">
+<section data-aos="fade-up" data-aos-duration="600">
+    <div class="container p-4">
+        <div class="row images py-4">
+            <div class="col">
+                <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
+                    <div class="carousel-inner h-100 rounded-5 slides">
+                        {% for special_offer in specialoffers %}
+                        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} h-100" style="box-shadow: 0px 0px var(--bs-purple);"><img class="w-100 d-block position-absolute h-100 fit-cover rounded-5" src="{{ MEDIA_URL }}{{ special_offer.img }}" alt="Slide Image" style="z-index: -1;">
+                            <div class="container d-flex flex-column justify-content-center h-100">
+                                <div class="row">
+                                    <div class="col-md-6 col-xl-4 offset-md-2">
+                                        <div style="max-width: 350px;">
+                                            <h1 class="text-uppercase fw-bold text-white">{{ special_offer.title }}</h1>
+                                            <p class="my-3">{{ special_offer.description }}</p><!--<a class="btn btn-primary btn-lg me-2" role="button" href="#">Купить</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+                    <ol class="carousel-indicators">
+                        {% for special_offer in specialoffers %}
+                        <li data-bs-target="#carousel-1" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    </div>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <div class="col col-3">
+                <div class="accordion" role="tablist" id="accordion-1">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">Категории</button></h2>
+                        <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                            <div class="accordion-body">
+                                <form action="{% url 'filter' %}">
+                                    {% for categ in category %}
+                                        <div class="form-check">
+                                            <input id="formCheck-1" class="form-check-input" type="checkbox" value="{{ categ.id }}" name="category"/>
+                                            <label class="form-check-label text-white" for="formCheck-1">{{ categ.name }}</label>
+                                        </div>
+                                    {% endfor %}
+                                    <button class="btn btn-dark w-100" type="submit" style="margin-top: 10px;">Найти</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-9">
+                <div class="row m-auto row-cols-1 row-cols-sm-2 row-cols-md-3">
+                    {% for product in products %}
+                    <div class="col product p-2">
+                        <div class="card card-product"><img class="card-img-top w-100 d-block img-fluid" src="{{ MEDIA_URL }}{{ product.img }}" loading="lazy" style="height: 300px;">
+                            <div class="card-body">
+                                <h4 class="font-monospace card-title">{{ product.name }}</h4>
+                                <h6 class="text-muted card-subtitle mb-2">{{ product.price }} ₽</h6>
+                                <div id="liveAlertPlaceholder"></div>
+                                <p class="card-text">{{ product.category }}</p><a id="liveAlertBtn" class="btn btn-dark" href="{% url 'add_basket' product.pk %}">Купить</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} <div class="ui center aligned basic very padded segment">
     <h1 class="ui header">Доброй пожаловать, {{ request.user.username }}!</h1>
-    {% comment %} <a href="{% url 'survey-create' %}">
-        <div class="ui red button">Создать новый опрос</div>
-    </a> {% endcomment %}
 </div>
 <a href="{% url 'profile' %}">
 <div class="ui blue button">Профиль</div>
@@ -58,5 +135,5 @@
     </h2>
     {% endif %}
 
-</div>
+</div> {% endcomment %}
 {% endblock %}

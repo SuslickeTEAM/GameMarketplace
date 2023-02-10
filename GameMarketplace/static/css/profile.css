@@ -1,0 +1,37 @@
+.profile-bg {
+  background: #6441A5;
+  background: -webkit-linear-gradient(135deg, #2a0845, #6441A5);
+  background: linear-gradient(135deg, #2a0845, #6441A5);
+}
+
+p {
+  color: rgb(175, 175, 175);
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  font-family: var(--bs-btn-font-family);
+  font-size: var(--bs-btn-font-size);
+  font-weight: var(--bs-btn-font-weight);
+  line-height: var(--bs-btn-line-height);
+  color: var(--bs-btn-color);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -moz-user-select: none;
+  user-select: none;
+  border: black;
+  border-radius: var(--bs-btn-border-radius);
+  background-color: black;
+  transition: all .25s ease-in-out;
+}
+
+thead {
+  color: white;
+}
+
+tbody {
+  color: rgb(209, 209, 209);
+}

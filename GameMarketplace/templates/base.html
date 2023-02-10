@@ -1,18 +1,79 @@
+
 {% load static %}
+
+
 
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SuslBUY</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="{% static 'css/swiper-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Black-Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Hero-Carousel-images.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Basic-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider-swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/aos.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="{% static 'js/Simple-Slider-swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+
+
     <title>
         {% block title %}{% endblock %}
     </title>
     <!-- <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100 {% if body_class %}{{ body_class }}{% endif %}">
+    <nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button" style="background: rgba(16,16,16,0.95);border-radius: 20;border-top-left-radius: 20;border-top-right-radius: 20;border-bottom-right-radius: 20;border-bottom-left-radius: 20;border-style: none;padding-top: 0;padding-bottom: 10px;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div><a class="navbar-brand" href="{% url 'index' %}"><img class="swing animated" src="{% static 'img/logo.png' %}" width="67" height="67"><span class="swing animated">SuslBUY</span> </a></div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav nav-right">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'catalog' %}">Каталог</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'view_basket' %}">Корзина</a></li>
+                    {% endif %}
+                </ul>
+                <p class="ms-auto navbar-text actions">
+                    {% if user.is_authenticated %}
+                    <a class="font-monospace login" href="{% url 'profile' %}">{{ user.username }}</a>
+                    {% comment %} <a href="{% url 'profile' %}"><img class="rounded-circle" style="margin-left: 10px;" src="{{ MEDIA_URL }}{{ profile.img }}" width="50" height="50"></a> {% endcomment %}
+                    <a class="btn btn-light action-button" role="button" href="{% url 'logout' %}" style="color: rgba(0,0,0,0.9);background: var(--bs-gray-200);border-radius: 10px;border-style: solid;border-color: rgba(0,0,0,0.9);font-size: 16px;padding: 5px 8px;">Выйти</a>
+                    {% else %}
+                    <a class="login" href="{% url 'login' %}">Войти</a>
+                    <a class="btn btn-light action-button" role="button" href="{% url 'signup' %}" style="color: rgba(0,0,0,0.9);background: var(--bs-gray-200);border-radius: 10px;border-style: solid;border-color: rgba(0,0,0,0.9);font-size: 16px;padding: 5px 8px;">Зарегистрироваться</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </nav>
     {% block content %}{% endblock %}
+    <footer id="footer-1" class="mt-auto">
+        <div style="background: black;text-align: center;margin: 0px;padding: 10px;">
+            <p style="color: grey;font-family: raleway;">Copyright (c) SuslBUY</p>
+        </div>
+    </footer>
+    
+    
 </body>
 
 </html>

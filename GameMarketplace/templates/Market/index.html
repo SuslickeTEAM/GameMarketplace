@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="d-xxl-flex my-auto py-5 py-xl-10">
+    <div class="container">
+        <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center pulse animated p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url(&quot;{% static 'img/index.png' %}&quot;);height: 500px;background-position: center 10px 10px;">
+            <div class="row">
+                <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
+                    <div>
+                        <h1 class="text-uppercase fw-bold mb-3" style="color: rgb(255,255,255);"><strong>Suslbuy</strong><br>Магазин аккаунтов, ключей, гифтов</h1>
+                        <p class="mb-4" style="color: rgb(227,227,227);">Если вы хотите попасть в мир безумных скидок и подарков, Вы можете нажать кнопку ниже и перейти в Каталог</p><a class="btn btn-dark btn-lg fs-5 fw-bolder me-2 py-2 px-4 btn-shadow" role="button" style="width: 200px;text-align: center;" href="{% url 'catalog' %}">В Каталог</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

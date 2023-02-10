@@ -1,0 +1,12 @@
+.total{
+    color: rgba(0, 0, 0, 0);
+    position: absolute;
+    display: none;
+    width: 0%;
+    height: 0%;
+}
+
+.product_img{
+    width: 250px;
+    height: 250px;
+}

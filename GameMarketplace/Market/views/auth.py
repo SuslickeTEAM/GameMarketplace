@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView as BaseLoginView
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
+
 
 
 def signup(request):
@@ -20,6 +22,14 @@ def signup(request):
 class LoginView(BaseLoginView):
     template_name = "Auth/login.html"
     redirect_authenticated_user = True
+    
+
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect('login')
+
 
 
 login = LoginView.as_view()
